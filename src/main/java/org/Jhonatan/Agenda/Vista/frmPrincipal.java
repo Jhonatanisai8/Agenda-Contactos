@@ -1,15 +1,29 @@
 package org.Jhonatan.Agenda.Vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class frmPrincipal extends javax.swing.JFrame {
-    
+
     public frmPrincipal() {
         initComponents();
         FlatMaterialLighterIJTheme.setup();
+        this.establecerFecha();
+        this.estiloIniciales();
     }
- 
-    
+
+    private void estiloIniciales() {
+        lblAdmin.setText("Administración/Control/Biblioteca");
+    }
+
+    private void establecerFecha() {
+        LocalDate localDate = LocalDate.now();
+        Locale locale = new Locale("es", "ES");
+        lblFecha.setText(localDate.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", locale)));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
